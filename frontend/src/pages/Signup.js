@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 import img1 from "../image/img1.jpeg"
 // import GhostAnime from "../components/ghost"
-import { motion, spring } from 'framer-motion'
-import ghoster1 from "../image/ghoster1.png"
+import { motion } from 'framer-motion'
+// import ghoster1 from "../image/ghoster1.png"
 import ghosted from "../image/ghosted.png"
 
 const loaderVariants = {
