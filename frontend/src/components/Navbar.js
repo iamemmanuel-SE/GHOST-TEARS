@@ -9,7 +9,7 @@ import Logo from './Glogo'
 import { motion } from 'framer-motion';
 import { io } from 'socket.io-client';
 import { useRoomNameContext } from '../hooks/useRoomNameContext';
-import { useKeySockContext } from '../hooks/useKeySockContext';
+// import { useKeySockContext } from '../hooks/useKeySockContext';
 
 let socket;
 
@@ -21,7 +21,7 @@ const Navbar = () => {
     const [catModal, setCatModal] = useState(false)
     const [ textCategory, setTextCategory ] = useState('')
     const { roomName } = useRoomNameContext()
-    const { KeySock} = useKeySockContext()
+    // const { KeySock} = useKeySockContext()
 
     //Navbar socket connection
     useEffect(() => {
@@ -75,7 +75,7 @@ const Navbar = () => {
             if(textCategory){
                 dispatch({type: 'SET_CATEGORY', payload: textCategory})
             }
-            
+             // eslint-disable-next-line react-hooks/exhaustive-deps
         },[textCategory])
     
 

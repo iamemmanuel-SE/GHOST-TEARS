@@ -22,7 +22,7 @@ const UsersPanel = (props) => {
     const { dispatchroom } = useRoomNameContext()
     const {keySocket } = useKeySockContext()
 
-    const [requestBut, setRequestBut] = useState(false) 
+    // const [requestBut, setRequestBut] = useState(false) 
 
     const { category } = useCatContext();
     const [activeUsers, setActiveUsers] = useState([]);
@@ -36,7 +36,7 @@ const UsersPanel = (props) => {
     const [occupiedUsers, setOccupiedUsers] = useState([])
     const [occupiedUsersTwo, setOccupiedUsersTwo] = useState([])
 
-    const { onValueChange, onKeypadChange, reqButStat } = props;
+    const { onValueChange, onKeypadChange } = props;
 
 
 
@@ -65,6 +65,7 @@ const UsersPanel = (props) => {
         socket.disconnect();
         
       };
+       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(()=> {
@@ -124,7 +125,7 @@ useEffect(() => {
   socket.on('requestAccepted', (data) => {
     setAcceptModal(data.accepter)
     setOkAccepter(data.accepter)
-    setRequestBut(true)// disabeling request button after acceptance
+    // setRequestBut(true)// disabeling request button after acceptance
     const value = false;
     const roomName = data.roomName
     onKeypadChange(value)
@@ -135,7 +136,8 @@ useEffect(() => {
 })
 
 console.log('sending keyActivation from ok user should be false ',keyboard )
-  // console.log('this is after receiving ok, it should be false', keyboard);     
+  // console.log('this is after receiving ok, it should be false', keyboard);  
+   // eslint-disable-next-line react-hooks/exhaustive-deps   
 }, [])
 
 
@@ -163,6 +165,7 @@ useEffect(()=>{
     keySocket: keySocket
   }, [theRoomName, okAccepter]);
   console.log('ROOMnMAE SENT BACK TO ACCEPTER AS:', theRoomName, okAccepter, keySocket )
+   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [theRoomName, acceptModal])
 
 useEffect(()=> (
@@ -176,6 +179,7 @@ useEffect(()=>{
   dispatchroom({type: 'SET_ROOMNAME', payload: data.roomName})
   console.log('the data recieved for ok to mario',data.roomName);
   });
+   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
 // Listening for occupied users and updating them

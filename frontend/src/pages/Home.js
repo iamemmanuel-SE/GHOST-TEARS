@@ -34,8 +34,8 @@ const Home = () => {
     const [requesterId, setRequesterId] = useState('')
 
     const [requestBut, setRequestBut] = useState(false)
-
-    const [ keypadSocket, setKeyPadSocket] = useState('')
+ 
+    // const [ keypadSocket, setKeyPadSocket] = useState('')
     
     const [isConnected, setIsConnected] = useState('hoverMessage')// Activating green hover message in player 2
 
@@ -51,9 +51,9 @@ const Home = () => {
     };
 
     // Callback function to receive the value from the child component
-    const catchKeySocket = (socketValue) => {
-        setKeyPadSocket(socketValue)
-    }
+    // const catchKeySocket = (socketValue) => {
+    //     setKeyPadSocket(socketValue)
+    // }
     
     
     // Function to get timer
@@ -162,7 +162,7 @@ const Home = () => {
                     </div>
                     
                     {/* KEY PAD */}
-                    <Keypad value={activateKey} requesterId={requesterId} catchSock={catchKeySocket} connected={isConnected} handleTimerFunc={handleTimer}/>
+                    <Keypad value={activateKey} requesterId={requesterId}  connected={isConnected} handleTimerFunc={handleTimer}/>
                     {/* KEY PAD */}
 
                 </div>

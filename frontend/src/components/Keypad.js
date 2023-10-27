@@ -32,7 +32,7 @@ const Keypad = ({ connected, handleTimerFunc }) => {
     const { user } = useAuthContext()
     const { keyboard, dispatchkey } = useKeyPadContext()
     const { roomName } = useRoomNameContext()
-    const { keySocket,   dispatchSockey } = useKeySockContext()
+    const { dispatchSockey } = useKeySockContext()
     const { dispatchghost } = useGameOverContext()
     
 
@@ -40,7 +40,7 @@ const Keypad = ({ connected, handleTimerFunc }) => {
     const [ghostLetters, setGhostLetters] = useState(['G', 'H', 'O', 'S', 'T', ' ', 'T', 'E', 'A', 'R', 'S']);
 
     const [ghosting, setGhosting] = useState([]);
-    const [gtl, setGtl] = useState([]);
+    // const [gtl, setGtl] = useState([]);
     const [hovermsg, setHoverMsg] = useState('hoverMessage')
     
     const [countdown, setCountdown] = useState(11)
@@ -72,7 +72,7 @@ const Keypad = ({ connected, handleTimerFunc }) => {
               socket.close();
             }
           }
-  
+   // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
        const printText = async (key) =>  { 
@@ -94,7 +94,7 @@ const Keypad = ({ connected, handleTimerFunc }) => {
         // setLetters((letters) => [...letters, data.message]);
       })
     }
-       
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
 
@@ -127,8 +127,10 @@ const Keypad = ({ connected, handleTimerFunc }) => {
     },[ghostLetters])
 
     useEffect(()=> {
+       // eslint-disable-next-line react-hooks/exhaustive-deps
       console.log('I AM LOOKING FOR U',ghosting)
       dispatchghost({type: 'SET_GHOSTLETTER', payload: ghosting})
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ghosting])
      
     //Changes lock notification to green Waiting
@@ -174,8 +176,9 @@ const Keypad = ({ connected, handleTimerFunc }) => {
 
     //printing out timing
     useEffect(() => {
+       // eslint-disable-next-line react-hooks/exhaustive-deps
       if(countdown < 11){  
-        if(countdown >= 0 && keyClicked.length == 0){
+        if(countdown >= 0 && keyClicked.length === 0){
            console.log(countdown,' :seconds left')
           
           } else {
@@ -186,8 +189,8 @@ const Keypad = ({ connected, handleTimerFunc }) => {
         
          
       } 
-        //  
-      
+        
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countdown])
 
     useEffect(()=> {
@@ -198,6 +201,7 @@ const Keypad = ({ connected, handleTimerFunc }) => {
               message: ''
           })
        } 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countdown])
 
     // useEffect(()=>{
@@ -252,6 +256,7 @@ const Keypad = ({ connected, handleTimerFunc }) => {
         }
       // setLetters((letters) => [...letters, data.message]);
     }) 
+     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
      return ( 
