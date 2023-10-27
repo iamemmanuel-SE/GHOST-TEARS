@@ -39,7 +39,12 @@ const countries = [
 // express app
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://ghost-tears.netlify.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // If you need to include cookies in your requests
+
+}));
 
 //middleware
 app.use(express.json())

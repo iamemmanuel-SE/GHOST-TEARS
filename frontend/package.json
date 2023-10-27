@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:7000",
+  "proxy": "https://ghost-tears-api.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
